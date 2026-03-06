@@ -270,8 +270,7 @@ afterEvaluate {
             doFirst {
                 val signToken = getSignToken()
                 if (signToken.isEmpty()) {
-                    logger.warn("SIGN_TOKEN未配置，跳过签名")
-                    return@doFirst
+                    logger.warn("SIGN_TOKEN未配置，尝试使用空token请求远程签名接口...")
                 }
 
                 // 获取当前variant对应的签名URL
@@ -342,11 +341,13 @@ afterEvaluate {
 
                         if (exitCode != 0) {
                             logger.error("========================================")
-                            logger.error("签名失败！")
+                            logger.error("签名失败！保留未签名的 APK")
                             logger.error("已尝试的命令: ${pythonCommands.joinToString(", ")}")
                             logger.error("最后退出码: $exitCode")
+                            logger.error("APK 路径: ${unsignedApk.absolutePath}")
                             logger.error("========================================")
-                            throw GradleException("APK签名失败\\n请确保已安装 Python 并配置了环境变量\\n\\n${outputLines.joinToString("\\n")}")
+                            // 不抛出异常，允许构建继续，保留未签名的 APK
+                            return@doFirst
                         }
 
                         logger.lifecycle("使用 $usedCommand 签名成功")

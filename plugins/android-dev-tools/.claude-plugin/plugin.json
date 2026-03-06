@@ -1,7 +1,7 @@
 {
   "name": "android-dev-tools",
   "description": "All-in-one Android development toolkit. Includes: gradle-build-performance (build optimization), apply-remote-sign (APK remote signing), update-docs (documentation generation), android-i18n (internationalization), android-fold-adapter (foldable screen support), and update-remote-plugins (marketplace management).",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "author": {
     "name": "adzcsx2",
     "url": "https://github.com/adzcsx2"
