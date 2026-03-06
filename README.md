@@ -10,7 +10,8 @@ All-in-one Android development toolkit for Claude Code. Install once, get everyt
 |-------|-------------|
 | `gradle-build-performance` | Debug and optimize Gradle build performance |
 | `apply-remote-sign` | Auto-configure remote APK signing |
-| `update-docs` | Generate docs and migrate root md files to docs/ |
+| `update-docs` | Generate Chinese technical documentation |
+| `android-i18n` | Audit and generate i18n resources for 4 languages |
 | `android-fold-adapter` | Diagnose and fix foldable screen adaptation issues |
 | `update-remote-plugins` | Sync marketplace and update local plugins |
 
@@ -80,9 +81,26 @@ Sync marketplace.json with plugins directory and update README files.
 - Add/remove plugins from marketplace.json
 - Sync English and Chinese README files
 - Commit and push to remote
-- **NEW:** Sync changes to local Claude Code plugins directory
+- Sync changes to local Claude Code plugins directory
 
 **Usage:** `/android-dev-tools:update-remote-plugins`
+
+---
+
+## android-i18n
+
+Audit Android project for hardcoded Chinese strings and generate i18n resources.
+
+**Features:**
+- Scan hardcoded strings in XML layouts and Kotlin/Java code
+- Generate string resources in `strings.xml`
+- Auto-translate to 4 languages (en/ru/zh/zh-rTW)
+- Update code to use resource references
+
+**Usage:**
+```bash
+/android-dev-tools:android-i18n [project_path]
+```
 
 ---
 
@@ -138,6 +156,8 @@ claude_skill/
 │           ├── apply-remote-sign/
 │           │   └── SKILL.md
 │           ├── update-docs/
+│           │   └── SKILL.md
+│           ├── android-i18n/
 │           │   └── SKILL.md
 │           ├── android-fold-adapter/
 │           │   └── SKILL.md

@@ -10,7 +10,8 @@
 |-------|------|
 | `gradle-build-performance` | 调试和优化 Gradle 构建性能 |
 | `apply-remote-sign` | 自动配置远程 APK 签名 |
-| `update-docs` | 生成文档并迁移根目录 md 文件到 docs/ |
+| `update-docs` | 生成中文技术文档 |
+| `android-i18n` | 审计并生成 4 种语言的国际化资源 |
 | `android-fold-adapter` | 诊断和修复折叠屏适配问题 |
 | `update-remote-plugins` | 同步 marketplace 并更新本地插件 |
 
@@ -80,9 +81,26 @@
 - 添加/移除插件到 marketplace.json
 - 同步中英文 README 文件
 - 提交并推送到远程
-- **新增：** 同步更新到本地 Claude Code 插件目录
+- 同步更新到本地 Claude Code 插件目录
 
 **用法：** `/android-dev-tools:update-remote-plugins`
+
+---
+
+## android-i18n
+
+审计 Android 项目中的硬编码中文字符串并生成国际化资源。
+
+**功能：**
+- 扫描 XML 布局和 Kotlin/Java 代码中的中文字符串
+- 在 `strings.xml` 中生成字符串资源
+- 自动翻译为 4 种语言 (en/ru/zh/zh-rTW)
+- 更新代码使用资源引用
+
+**用法：**
+```bash
+/android-dev-tools:android-i18n [项目路径]
+```
 
 ---
 
@@ -138,6 +156,8 @@ claude_skill/
 │           ├── apply-remote-sign/
 │           │   └── SKILL.md
 │           ├── update-docs/
+│           │   └── SKILL.md
+│           ├── android-i18n/
 │           │   └── SKILL.md
 │           ├── android-fold-adapter/
 │           │   └── SKILL.md
