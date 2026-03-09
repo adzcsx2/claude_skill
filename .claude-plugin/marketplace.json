@@ -1,6 +1,6 @@
 {
   "name": "android-dev-tools",
-  "description": "Android development toolkit for Claude Code - build performance, remote signing, documentation, i18n, foldable screen support, and marketplace management",
+  "description": "Android development toolkit for Claude Code - build performance, remote signing, documentation, i18n, foldable screen support, code comments, and marketplace management",
   "owner": {
     "name": "adzcsx2",
     "url": "https://github.com/adzcsx2"
@@ -9,8 +9,8 @@
     {
       "name": "android-dev-tools",
       "source": "./plugins/android-dev-tools",
-      "description": "All-in-one Android development toolkit. Includes: gradle-build-performance, apply-remote-sign, update-docs, android-i18n, android-fold-adapter, and update-remote-plugins skills.",
-      "version": "2.2.2"
+      "description": "All-in-one Android development toolkit. Includes: gradle-build-performance, apply-remote-sign, update-docs, android-i18n, android-fold-adapter, code-note, and update-remote-plugins skills.",
+      "version": "2.3.0"
     }
   ]
 }

@@ -13,6 +13,7 @@
 | `update-docs` | 生成中文技术文档 |
 | `android-i18n` | 审计并生成 4 种语言的国际化资源 |
 | `android-fold-adapter` | 诊断和修复折叠屏适配问题 |
+| `code-note` | 为 Kotlin/Java 源文件添加中文注释 |
 | `update-remote-plugins` | 同步 marketplace 并更新本地插件 |
 
 ---
@@ -72,6 +73,28 @@
 ```bash
 /android-dev-tools:update-docs [--force] [--dry-run] [interfaces|navigation|components|notifications|api]
 ```
+
+---
+
+## code-note
+
+为 Kotlin/Java 源文件添加中文注释。
+
+**功能：**
+- 分析代码结构（类、方法、变量）
+- 添加 KDoc/JavaDoc 风格文档
+- 注释关键逻辑块
+- 简短但全面的注释
+- 保持原有代码格式
+
+**用法：**
+```bash
+/android-dev-tools:code-note 文件名
+```
+
+**示例：**
+- `/android-dev-tools:code-note AlbumActivity`
+- `/android-dev-tools:code-note LoginActivity.kt`
 
 ---
 
@@ -164,6 +187,8 @@ claude_skill/
 │           ├── android-i18n/
 │           │   └── SKILL.md
 │           ├── android-fold-adapter/
+│           │   └── SKILL.md
+│           ├── code-note/
 │           │   └── SKILL.md
 │           └── update-remote-plugins/
 │               └── SKILL.md

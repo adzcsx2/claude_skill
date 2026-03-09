@@ -13,6 +13,7 @@ All-in-one Android development toolkit for Claude Code. Install once, get everyt
 | `update-docs` | Generate Chinese technical documentation |
 | `android-i18n` | Audit and generate i18n resources for 4 languages |
 | `android-fold-adapter` | Diagnose and fix foldable screen adaptation issues |
+| `code-note` | Add Chinese comments to Kotlin/Java source files |
 | `update-remote-plugins` | Sync marketplace and update local plugins |
 
 ---
@@ -72,6 +73,28 @@ Auto-generate Chinese technical documentation for Android projects.
 ```bash
 /android-dev-tools:update-docs [--force] [--dry-run] [interfaces|navigation|components|notifications|api]
 ```
+
+---
+
+## code-note
+
+Add Chinese comments to Kotlin/Java source files.
+
+**Features:**
+- Analyze code structure (classes, methods, variables)
+- Add KDoc/JavaDoc style documentation
+- Comment key logic blocks
+- Concise but comprehensive comments
+- Preserve original code formatting
+
+**Usage:**
+```bash
+/android-dev-tools:code-note 文件名
+```
+
+**Examples:**
+- `/android-dev-tools:code-note AlbumActivity`
+- `/android-dev-tools:code-note LoginActivity.kt`
 
 ---
 
@@ -164,6 +187,8 @@ claude_skill/
 │           ├── android-i18n/
 │           │   └── SKILL.md
 │           ├── android-fold-adapter/
+│           │   └── SKILL.md
+│           ├── code-note/
 │           │   └── SKILL.md
 │           └── update-remote-plugins/
 │               └── SKILL.md
