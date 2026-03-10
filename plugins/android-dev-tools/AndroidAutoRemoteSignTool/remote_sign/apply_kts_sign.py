@@ -347,28 +347,27 @@ afterEvaluate {
                             logger.error("APK 路径: ${unsignedApk.absolutePath}")
                             logger.error("========================================")
                             // 不抛出异常，允许构建继续，保留未签名的 APK
-                            return@doFirst
+                        } else {
+                            logger.lifecycle("使用 $usedCommand 签名成功")
+
+                            // 记录成功签名的 APK 路径
+                            signedApkPaths.add(signedApk.absolutePath)
+
+                            val signElapsedMs = System.currentTimeMillis() - signStartTime
+                            val signElapsedSec = "%.2f".format(signElapsedMs / 1000.0)
+
+                            logger.lifecycle("========================================")
+                            logger.lifecycle("签名成功: ${signedApk.name}")
+                            logger.lifecycle("----------------------------------------")
+                            logger.lifecycle("构建类型: ${variant.buildType.name}")
+                            logger.lifecycle("构建变体: ${variant.name}")
+                            logger.lifecycle("版本号: ${variant.versionCode}")
+                            logger.lifecycle("版本名称: ${variant.versionName}")
+                            logger.lifecycle("----------------------------------------")
+                            logger.lifecycle("编译耗时: ${compileElapsedSec}秒")
+                            logger.lifecycle("签名耗时: ${signElapsedSec}秒")
+                            logger.lifecycle("========================================")
                         }
-
-                        logger.lifecycle("使用 $usedCommand 签名成功")
-
-                        // 记录成功签名的 APK 路径
-                        signedApkPaths.add(signedApk.absolutePath)
-
-                        val signElapsedMs = System.currentTimeMillis() - signStartTime
-                        val signElapsedSec = "%.2f".format(signElapsedMs / 1000.0)
-
-                        logger.lifecycle("========================================")
-                        logger.lifecycle("签名成功: ${signedApk.name}")
-                        logger.lifecycle("----------------------------------------")
-                        logger.lifecycle("构建类型: ${variant.buildType.name}")
-                        logger.lifecycle("构建变体: ${variant.name}")
-                        logger.lifecycle("版本号: ${variant.versionCode}")
-                        logger.lifecycle("版本名称: ${variant.versionName}")
-                        logger.lifecycle("----------------------------------------")
-                        logger.lifecycle("编译耗时: ${compileElapsedSec}秒")
-                        logger.lifecycle("签名耗时: ${signElapsedSec}秒")
-                        logger.lifecycle("========================================")
                     }
                     true
                 }
