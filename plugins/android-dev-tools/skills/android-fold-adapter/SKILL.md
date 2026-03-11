@@ -129,4 +129,15 @@ Before marking the fix complete, verify:
 
 ---
 
+### Issue #2: Desktop Widget — pm clear After Fold/Unfold Shows "Unable To Load Widget"
+
+**Symptoms**: After placing the widget on the launcher, running `adb shell pm clear com.vertu.personalizationwidget`, then folding or unfolding the device causes the launcher widget to show "无法加载微件" and become non-clickable.
+
+**Root Cause**: The widget provider rebuilt fallback data after `pm clear`, but logo rendering still relied on `FileProvider` URIs pointing to app-private files under `files/logos`. During launcher host rebind on fold/unfold, those file-backed URIs could become stale or invalid after the app data clear, causing the host to fail while applying `RemoteViews`.
+
+**Fix Applied**: Restore default widget state synchronously after `pm clear`, ensure built-in logo assets are recreated if missing, and replace `setImageViewUri(...)` with `setImageViewBitmap(...)` so widget rendering no longer depends on app-private file URIs surviving host-side rebinds. Files changed:
+- `WidgetEngraving/src/main/java/com/vertu/personalizationwidget/EngravingAppWidgetProvider.kt` — persist fallback widget entity, restore built-in logos, replace URI-based logo rendering with bitmap-based rendering
+
+---
+
 <!-- Add new issues below this line following the same format -->
