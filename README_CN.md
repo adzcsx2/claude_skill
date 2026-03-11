@@ -67,8 +67,11 @@
 - 列出四大组件（Activity、Service、Receiver、Provider）
 - 文档化通知渠道和 API 接口
 - 支持增量更新
-- **新增：** 将根目录 md 文件迁移到 docs/ 目录
-- **新增：** 更新 README 并添加分类文档快捷链接
+- 将根目录 md 文件迁移到 docs/ 目录
+- 更新 README 并添加分类文档快捷链接
+- **新增：** 在 `docs/update-list/` 生成更新 diff 文档
+- **新增：** 维护 `UPDATE_INDEX.md` 更新历史索引（可点击查看详情）
+- **新增：** 在 README 显示最近 3 次更新及快捷入口
 
 **用法：**
 ```bash

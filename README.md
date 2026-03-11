@@ -67,8 +67,11 @@ Auto-generate Chinese technical documentation for Android projects.
 - Lists four components (Activity, Service, Receiver, Provider)
 - Documents notification channels and API endpoints
 - Supports incremental updates
-- **NEW:** Migrates root md files to docs/ directory
-- **NEW:** Updates README with categorized doc quick links
+- Migrates root md files to docs/ directory
+- Updates README with categorized doc quick links
+- **NEW:** Generates update diff documents in `docs/update-list/`
+- **NEW:** Maintains `UPDATE_INDEX.md` with clickable update history
+- **NEW:** Shows last 3 updates in README with quick access link
 
 **Usage:**
 ```bash
