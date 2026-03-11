@@ -14,6 +14,7 @@ All-in-one Android development toolkit for Claude Code. Install once, get everyt
 | `android-i18n` | Audit and generate i18n resources for 4 languages |
 | `android-fold-adapter` | Diagnose and fix foldable screen adaptation issues |
 | `code-note` | Add Chinese comments to Kotlin/Java source files |
+| `android-adb` | Control Android devices via ADB - tap, swipe, type, navigate |
 | `update-remote-plugins` | Sync marketplace and update local plugins |
 
 ---
@@ -149,6 +150,32 @@ Diagnose and fix Android foldable screen adaptation issues.
 
 ---
 
+## android-adb
+
+Control Android devices via ADB commands - tap, swipe, type, navigate apps.
+
+**Features:**
+- Perception-action loop: read UI state, decide actions
+- Multi-device support with automatic detection
+- Tap, swipe, type, key press actions
+- Launch apps, install APKs
+- Take screenshots for visual debugging
+- Wake device and dismiss lock screen
+
+**Usage:**
+```bash
+/android-dev-tools:android-adb open Chrome and search for weather
+/android-dev-tools:android-adb take a screenshot
+/android-dev-tools:android-adb open Settings and enable dark mode
+```
+
+**Prerequisites:**
+- ADB installed and in PATH
+- Android device with USB debugging enabled
+- Device authorized for debugging
+
+---
+
 ## Installation
 
 ```bash
@@ -190,6 +217,10 @@ claude_skill/
 │           │   └── SKILL.md
 │           ├── code-note/
 │           │   └── SKILL.md
+│           ├── android-adb/
+│           │   ├── SKILL.md
+│           │   ├── scripts/
+│           │   └── references/
 │           └── update-remote-plugins/
 │               └── SKILL.md
 ├── README.md            # English
