@@ -305,7 +305,9 @@ Generate a detailed update document in `docs/update-list/` for each update:
 
 **不要展开列出完整的接口内容，只说明哪些文件增加了注释。**
 
-### 8.5 How to Detect Actual Changes
+### 8.5 How to Detect Actual Changes (CRITICAL)
+
+**适用于所有文档，不只是 API.md**
 
 **Before writing to update log, verify:**
 
@@ -317,14 +319,55 @@ Generate a detailed update document in `docs/update-list/` for each update:
    - Content modified (not just formatting)
 4. **Skip if only metadata changed** (timestamps, etc.)
 
-**Use git diff for comparison:**
-```bash
-# Check if doc has actual content changes
-git diff HEAD -- docs/API.md
+### 8.6 Ignore Code Formatting Changes (CRITICAL)
 
-# Ignore whitespace-only changes
+**代码格式化变化不应记录到更新日志：**
+
+| 变化类型 | 是否记录 | 示例 |
+|----------|----------|------|
+| 新增接口/方法 | ✅ 记录 | 新增 `POST /mint/nft` |
+| 删除接口/方法 | ✅ 记录 | 删除 `GET /old/api` |
+| 修改接口参数 | ✅ 记录 | 参数 `userId` 改为 `walletAddress` |
+| 代码换行/缩进 | ❌ 不记录 | `builder.addHeader("token", x)` 换行 |
+| 代码格式化 | ❌ 不记录 | IDE 自动格式化 |
+| 注释变化 | ⚠️ 简化记录 | 只列出文件名，不展开内容 |
+
+**检测方法：**
+
+```bash
+# 忽略空白变化，检查是否有实际内容变化
 git diff HEAD --ignore-all-space -- docs/API.md
+
+# 如果忽略空白后没有变化，则不记录
+if git diff HEAD --ignore-all-space --quiet -- docs/API.md; then
+  echo "No actual changes, skip recording"
+fi
+
+# 检查源代码是否有逻辑变化（不只是格式化）
+git diff HEAD --ignore-all-space -- "*.kt" "*.java"
 ```
+
+### 8.7 Source Code Change Detection
+
+**分析源代码变更时，区分格式化和逻辑变化：**
+
+```markdown
+## Git 提交详细分析
+
+### e205804 - 重构图片加载,提高加载效率
+
+**变动文件**:
+- `HttpUtils.kt`
+  - 代码格式化（换行调整）← 无需详细展开
+  - 新增 `LoggingInterceptor` 替换旧日志拦截器 ← 实际变更
+- `ALiYunOSS.kt`
+  - 新增文件哈希计算方法 ← 实际变更
+```
+
+**规则**：
+- 如果文件只有格式化变化，写"代码格式化（无需详细展开）"
+- 如果有实际逻辑变化，只写逻辑变化的部分
+- 不要因为代码格式化而展开列出无意义的内容
 
 ---
 
