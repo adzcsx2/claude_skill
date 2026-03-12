@@ -3,6 +3,15 @@ name: update-docs
 description: Auto-generate Chinese technical documentation for Android projects. Analyzes structure, generates interfaces, navigation, components, notifications, and API docs. Also migrates root md files to docs/ and updates README with quick links.
 ---
 
+> **中文环境要求**
+>
+> 本技能运行在中文环境下，请遵循以下约定：
+> - 面向用户的回复、注释、提示信息必须使用中文
+> - AI 内部处理过程可以使用英文
+> - 所有生成的文件必须使用 UTF-8 编码
+>
+> ---
+
 # update-docs Skill
 
 Android 项目文档自动生成工具。分析项目结构，生成中文技术文档，支持增量更新。

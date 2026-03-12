@@ -3,6 +3,15 @@ name: gradle-build-performance
 description: Debug and optimize Android/Gradle build performance. Use when builds are slow, investigating CI/CD performance, analyzing build scans, or identifying compilation bottlenecks.
 ---
 
+> **中文环境要求**
+>
+> 本技能运行在中文环境下，请遵循以下约定：
+> - 面向用户的回复、注释、提示信息必须使用中文
+> - AI 内部处理过程可以使用英文
+> - 所有生成的文件必须使用 UTF-8 编码
+>
+> ---
+
 # Gradle Build Performance
 
 ## When to Use
@@ -37,6 +46,73 @@ Read and analyze the following files:
 - `app/build.gradle` / `app/build.gradle.kts` - App module
 - `settings.gradle` / `settings.gradle.kts` - Settings
 - `gradle/wrapper/gradle-wrapper.properties` - Gradle version
+
+**CRITICAL: UTF-8 Encoding Check for gradle.properties**
+
+Before modifying `gradle.properties`, MUST check and ensure UTF-8 encoding:
+
+```bash
+# Method 1: Check file encoding using file command (macOS/Linux)
+file -b --mime-encoding gradle.properties
+
+# Method 2: Check for non-UTF-8 characters
+grep -P '[^\x00-\x7F]' gradle.properties
+
+# Method 3: Try reading as UTF-8
+python3 -c "open('gradle.properties', 'r', encoding='utf-8').read()"
+```
+
+If the file is NOT UTF-8 encoded (e.g., GBK, GB2312, Shift-JIS):
+
+1. **Backup the original file first**:
+   ```bash
+   cp gradle.properties gradle.properties.backup
+   ```
+
+2. **Detect current encoding**:
+   ```bash
+   # On macOS/Linux
+   file -b --mime-encoding gradle.properties
+
+   # Or use Python to detect
+   python3 -c "import chardet; print(chardet.detect(open('gradle.properties', 'rb').read())['encoding'])"
+   ```
+
+3. **Convert to UTF-8**:
+   ```bash
+   # Method 1: Using iconv (macOS/Linux)
+   # Replace SOURCE_ENCODING with detected encoding (e.g., GBK, GB2312, Shift-JIS)
+   iconv -f SOURCE_ENCODING -t UTF-8 gradle.properties > gradle.properties.utf8
+   mv gradle.properties.utf8 gradle.properties
+
+   # Method 2: Using Python
+   python3 << 'EOF'
+   import chardet
+
+   # Detect encoding
+   with open('gradle.properties', 'rb') as f:
+       raw = f.read()
+       detected = chardet.detect(raw)
+       source_encoding = detected['encoding']
+
+   print(f"[信息] 检测到编码: {source_encoding}")
+
+   # Convert to UTF-8
+   content = raw.decode(source_encoding)
+   with open('gradle.properties', 'w', encoding='utf-8') as f:
+       f.write(content)
+
+   print(f"[信息] 已将 gradle.properties 转换为 UTF-8 编码")
+   EOF
+   ```
+
+4. **Verify conversion**:
+   ```bash
+   file -b --mime-encoding gradle.properties
+   # Should output: utf-8
+   ```
+
+**Note**: Always keep the backup file until you've verified the build still works correctly.
 
 **CRITICAL: Check Compatibility Before Enabling Optimizations**
 

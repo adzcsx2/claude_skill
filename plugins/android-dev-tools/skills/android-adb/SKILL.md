@@ -4,6 +4,15 @@ description: Control Android devices via ADB commands - tap, swipe, type, naviga
 compatibility: darwin, linux
 ---
 
+> **中文环境要求**
+>
+> 本技能运行在中文环境下，请遵循以下约定：
+> - 面向用户的回复、注释、提示信息必须使用中文
+> - AI 内部处理过程可以使用英文
+> - 所有生成的文件必须使用 UTF-8 编码
+>
+> ---
+
 # Android Device Control Skill
 
 This skill enables you to control Android devices connected via ADB (Android Debug Bridge). You act as both the reasoning and execution engine - reading the device's UI state directly and deciding what actions to take.

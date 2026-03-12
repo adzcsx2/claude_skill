@@ -3,6 +3,15 @@ name: code-note
 description: Add Chinese comments to Kotlin/Java source files. Supports classes, methods, member variables, and key logic blocks. Comments are concise but comprehensive.
 ---
 
+> **中文环境要求**
+>
+> 本技能运行在中文环境下，请遵循以下约定：
+> - 面向用户的回复、注释、提示信息必须使用中文
+> - AI 内部处理过程可以使用英文
+> - 所有生成的文件必须使用 UTF-8 编码
+>
+> ---
+
 # code-note Skill
 
 为 Android 项目的 Kotlin/Java 源文件添加中文注释。

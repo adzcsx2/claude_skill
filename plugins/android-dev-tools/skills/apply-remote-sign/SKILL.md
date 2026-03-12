@@ -3,6 +3,15 @@ name: apply-remote-sign
 description: 为 Android 项目自动配置远程签名，支持 Groovy DSL (build.gradle) 和 Kotlin DSL (build.gradle.kts)。调用 AndroidAutoRemoteSignTool 工具完成配置。
 ---
 
+> **中文环境要求**
+>
+> 本技能运行在中文环境下，请遵循以下约定：
+> - 面向用户的回复、注释、提示信息必须使用中文
+> - AI 内部处理过程可以使用英文
+> - 所有生成的文件必须使用 UTF-8 编码
+>
+> ---
+
 # Android Remote Sign Tool
 
 为 Android 项目自动配置远程签名，支持 Groovy DSL (build.gradle) 和 Kotlin DSL (build.gradle.kts)。

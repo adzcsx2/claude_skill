@@ -3,6 +3,15 @@ name: update-remote-plugins
 description: Sync marketplace.json, plugin.json, and README files, then commit and push to remote. Also syncs changes to local Claude Code plugins directory.
 ---
 
+> **中文环境要求**
+>
+> 本技能运行在中文环境下，请遵循以下约定：
+> - 面向用户的回复、注释、提示信息必须使用中文
+> - AI 内部处理过程可以使用英文
+> - 所有生成的文件必须使用 UTF-8 编码
+>
+> ---
+
 # Update Remote Plugins
 
 Sync marketplace.json with plugins directory, update both English and Chinese README files, then commit and push to remote. Finally, sync to local Claude Code plugins directory.

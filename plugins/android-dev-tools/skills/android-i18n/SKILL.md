@@ -3,6 +3,15 @@ name: android-i18n
 description: Audit Android project for hardcoded Chinese strings, generate i18n resources for 4 languages (en/ru/zh/zh-rTW), and update code to use string resources.
 ---
 
+> **中文环境要求**
+>
+> 本技能运行在中文环境下，请遵循以下约定：
+> - 面向用户的回复、注释、提示信息必须使用中文
+> - AI 内部处理过程可以使用英文
+> - 所有生成的文件必须使用 UTF-8 编码
+>
+> ---
+
 # Android i18n Audit Tool
 
 审计 Android 项目中的硬编码中文字符串,自动生成 4 种语言的国际化资源 (en/ru/zh/zh-rTW),并更新代码使用字符串资源。
