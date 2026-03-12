@@ -10,7 +10,7 @@
       "name": "android-dev-tools",
       "source": "./plugins/android-dev-tools",
       "description": "All-in-one Android development toolkit. Includes: gradle-build-performance, apply-remote-sign, update-docs, android-i18n, android-fold-adapter, code-note, android-adb, and update-remote-plugins skills.",
-      "version": "2.6.0"
+      "version": "2.7.0"
     }
   ]
 }

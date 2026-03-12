@@ -69,11 +69,10 @@ Auto-generate Chinese technical documentation for Android projects.
 - Supports incremental updates
 - Migrates root md files to docs/ directory
 - Updates README with categorized doc quick links
-- Generates update diff documents in `docs/update-list/`
-- Maintains `UPDATE_INDEX.md` with clickable update history
-- Shows last 3 updates in README with quick access link
-- **NEW (v2.6.0):** Git log-based change detection - uses commit messages for accurate update summaries
-- **NEW (v2.6.0):** Tracks commits in metadata for complete change history
+- **NEW (v2.7.0):** CHANGELOG.md as update list with links to detailed updates
+- **NEW (v2.7.0):** Detailed update documents in `docs/update-list/` with actual content changes
+- **NEW (v2.7.0):** README shows only 1 most recent update (link to CHANGELOG for full history)
+- **NEW (v2.7.0):** Records document content changes, not just git commits
 
 **Usage:**
 ```bash
