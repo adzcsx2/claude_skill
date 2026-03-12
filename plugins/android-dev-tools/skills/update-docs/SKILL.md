@@ -229,14 +229,50 @@ Generate a detailed update document in `docs/update-list/` for each update:
 - 新增 WalletConnect 连接流程
   - ReviewActivity → WalletConnectResponseActivity
   - 支持返回重连逻辑
-
-## 关联的 Git 提交
-
-| 提交 | 描述 |
-|------|------|
-| abc1234 | 修复作品页铸造失败重试逻辑与Toast文案 |
-| def5678 | 重构完成第一版-铸造流程跑通 |
 ```
+
+### 8.3 Git Commit Detailed Analysis (CRITICAL)
+
+**分析每个提交中每个文件的变动，多处变动都要写上：**
+
+```markdown
+## Git 提交详细分析
+
+### a7f334e - 修复作品页铸造失败重试逻辑与Toast文案
+
+**变动文件**:
+- `CastDialog.kt`
+  - 新增重试按钮点击事件
+  - 更新错误提示文案
+  - 新增铸造状态监听
+- `WCController.kt`
+  - 修复连接断开重连逻辑
+  - 新增超时处理
+- `MintPendingManager.kt`
+  - 新增待处理队列管理
+  - 新增状态回调接口
+- `AlbumActivity.kt`
+  - 更新铸造状态显示
+
+### 612a131 - 重构完成第一版-铸造流程跑通
+
+**变动文件**:
+- `MyApplication.kt`
+  - 初始化铸造管理器
+- `ReviewActivity.kt`
+  - 新增铸造入口
+- `CastDialog.kt`
+  - 重构铸造对话框
+- `MintHelper.kt`
+  - 新增铸造辅助类
+- `WCController.kt`
+  - 集成钱包连接
+```
+
+**注意**：
+- 每个文件的**多处变动都要列出**
+- 不要写"保持不变"的文件列表
+- 只写有实际变动的文件
 
 ### 8.3 What to EXCLUDE from Update Log (CRITICAL)
 
@@ -344,7 +380,7 @@ CHANGELOG.md serves as the update list with clickable links to details:
 
 ## 10. Update README.md
 
-README.md shows **ONLY 1** most recent update:
+README.md shows **3 most recent updates**:
 
 ```markdown
 ## 文档导航
@@ -356,6 +392,8 @@ README.md shows **ONLY 1** most recent update:
 | 日期 | 描述 |
 |------|------|
 | YYYY-MM-DD | 新增 NFT 铸造相关文档，更新 WalletConnect 集成说明 |
+| YYYY-MM-DD | 新增界面文档、导航流程文档 |
+| YYYY-MM-DD | 首次生成项目文档 |
 
 > 查看全部更新: [更新记录](docs/CHANGELOG.md)
 
@@ -370,9 +408,9 @@ README.md shows **ONLY 1** most recent update:
 ```
 
 **README Update Rules:**
-1. **Only 1 recent update**: Show just the latest update
+1. **3 recent updates**: Show the latest 3 updates
 2. **Link to CHANGELOG**: Point to `docs/CHANGELOG.md` for full history
-3. **Brief description**: Summarize the update in one sentence
+3. **Brief description**: Summarize each update in one sentence
 
 ---
 
