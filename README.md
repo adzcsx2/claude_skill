@@ -15,6 +15,7 @@ All-in-one Android development toolkit for Claude Code. Install once, get everyt
 | `android-fold-adapter` | Diagnose and fix foldable screen adaptation issues |
 | `code-note` | Add Chinese comments to Kotlin/Java source files |
 | `android-adb` | Control Android devices via ADB - tap, swipe, type, navigate |
+| `android-testing` | Comprehensive testing strategy - Unit, Integration, Hilt, Screenshot tests |
 | `update-remote-plugins` | Sync marketplace and update local plugins |
 
 ---
@@ -181,6 +182,21 @@ Control Android devices via ADB commands - tap, swipe, type, navigate apps.
 
 ---
 
+## android-testing
+
+Comprehensive testing strategy involving Unit, Integration, Hilt, and Screenshot tests.
+
+**Features:**
+- Testing pyramid guidance (Unit → Integration → UI)
+- Screenshot testing with Roborazzi (JVM-based, no emulator needed)
+- Hilt dependency injection testing
+- Recommended testing dependencies (libs.versions.toml)
+- Unit, Integration, and Screenshot test examples
+
+**Usage:** `/android-dev-tools:android-testing`
+
+---
+
 ## Installation
 
 ```bash
@@ -226,6 +242,8 @@ claude_skill/
 │           │   ├── SKILL.md
 │           │   ├── scripts/
 │           │   └── references/
+│           ├── android-testing/
+│           │   └── SKILL.md
 │           └── update-remote-plugins/
 │               └── SKILL.md
 ├── README.md            # English

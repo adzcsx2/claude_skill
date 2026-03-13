@@ -15,6 +15,7 @@
 | `android-fold-adapter` | 诊断和修复折叠屏适配问题 |
 | `code-note` | 为 Kotlin/Java 源文件添加中文注释 |
 | `android-adb` | 通过 ADB 控制 Android 设备 - 点击、滑动、输入、导航 |
+| `android-testing` | 全面测试策略 - 单元测试、集成测试、Hilt 测试、截图测试 |
 | `update-remote-plugins` | 同步 marketplace 并更新本地插件 |
 
 ---
@@ -181,6 +182,21 @@
 
 ---
 
+## android-testing
+
+全面测试策略，涵盖单元测试、集成测试、Hilt 测试和截图测试。
+
+**功能：**
+- 测试金字塔指导（单元测试 → 集成测试 → UI 测试）
+- 使用 Roborazzi 进行截图测试（基于 JVM，无需模拟器）
+- Hilt 依赖注入测试
+- 推荐测试依赖配置（libs.versions.toml）
+- 单元测试、集成测试、截图测试示例
+
+**用法：** `/android-dev-tools:android-testing`
+
+---
+
 ## 安装
 
 ```bash
@@ -226,6 +242,8 @@ claude_skill/
 │           │   ├── SKILL.md
 │           │   ├── scripts/
 │           │   └── references/
+│           ├── android-testing/
+│           │   └── SKILL.md
 │           └── update-remote-plugins/
 │               └── SKILL.md
 ├── README.md                  # 英文
